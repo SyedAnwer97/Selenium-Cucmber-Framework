@@ -26,6 +26,7 @@ public class LoginSteps {
     public void userShouldEnterTheUsernameAs(String username) {
         driver.findElement(By.id("user-name")).sendKeys(username);
     }
+
     @Given("User should enter the password as {string}")
     public void userShouldEnterThePasswordAs(String password) {
         driver.findElement(By.id("password")).sendKeys(password);
@@ -39,7 +40,6 @@ public class LoginSteps {
     @Then("login should be success")
     public void loginShouldBeSuccess() {
         boolean displayed = driver.findElement(By.xpath("//div[@class='app_logo']")).isDisplayed();
-        System.out.println(displayed);
         Assert.assertTrue(displayed);
         driver.quit();
     }
