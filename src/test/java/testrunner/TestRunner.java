@@ -7,13 +7,14 @@ import static io.cucumber.testng.CucumberOptions.SnippetType;
 
 @CucumberOptions(features = {"src/test/java/features/"},
         dryRun = !true,
-        glue = "steps",
+        glue = {"steps","hooks"},
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
         plugin = {"pretty",
                 "html:cucumber-reports/report.html",
                 "json:cucumber-reports/report.json",
-                "junit:cucumber-reports/report.xml"}
+                "junit:cucumber-reports/report.xml"},
+        tags = "(@smoke) or (@reg) and (@dev) or (@test)"
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
