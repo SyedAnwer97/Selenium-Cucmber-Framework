@@ -15,6 +15,7 @@
         <selenium-java>4.21.0</selenium-java>
         <cucumber-java>7.18.0</cucumber-java>
         <cucumber-testng>7.18.0</cucumber-testng>
+        <webdrivermanager>5.8.0</webdrivermanager>
     </properties>
 
     <dependencies>
