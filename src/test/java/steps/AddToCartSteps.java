@@ -12,17 +12,6 @@ import java.time.Duration;
 
 public class AddToCartSteps {
 
-    //WebDriver driver;
-    String URL = "https://www.saucedemo.com/";
-
-    @Given("User should navigate to the application Swag Labs")
-    public void userShouldNavigateToTheApplicationSwagLabs() {
-        WebDriver driver = new ChromeDriver();
-        DriverManager.settDriver(driver);
-        DriverManager.getDriver().manage().window().maximize();
-        DriverManager.getDriver().get(URL);
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
 
     @Given("User should login as {string} and {string}")
     public void userShouldLoginAsAnd(String username, String password) {
