@@ -2,9 +2,9 @@
 Feature: Swag Labs application Demo
 
   Background:
-    Given User should navigate to the application Swag Labs
+    Given User should navigate to the application
 
-  @reg
+  @reg @cleanup @dev_chrome @aut_Syed
   Scenario Outline: Add a product to the cart
     And User should login as "<username>" and "<password>"
     And User should add the "<product>" to the cart
