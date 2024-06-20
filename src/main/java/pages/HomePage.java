@@ -14,7 +14,7 @@ import static utils.LocatorUtils.byLocator;
 
 public final class HomePage {
 
-    private String productsAddToCart = "//div[normalize-space()='%s']//following::button[.='Add to cart'][1]";
+    private final String productsAddToCart = "//div[normalize-space()='%s']//following::button[.='Add to cart'][1]";
 
     private final By shoppingCartBadge = byLocator(XPATH, "//*[@data-test='shopping-cart-badge']");
     private final By imageLogo = byLocator(XPATH, "//div[@class='app_logo']");
@@ -44,4 +44,5 @@ public final class HomePage {
         }
         return new HomePage();
     }
+
 }

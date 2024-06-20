@@ -7,7 +7,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class LocatorUtils {
+public final class LocatorUtils {
 
     private LocatorUtils() {
     }
@@ -35,4 +35,5 @@ public class LocatorUtils {
     public static By byLocator(Locators locatorType, String locatorValue) {
         return map.get(locatorType).apply(locatorValue);
     }
+
 }

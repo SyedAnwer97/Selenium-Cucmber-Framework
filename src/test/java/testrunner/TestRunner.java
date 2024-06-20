@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import static io.cucumber.testng.CucumberOptions.SnippetType;
 
-@CucumberOptions(features = {"src/test/java/features/"},
+@CucumberOptions(features = {"src/main/java/features/"},
         dryRun = false,
         glue = {"steps", "hooks"},
         monochrome = true,

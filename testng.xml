@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="selenium.cucumber.framework">
+
+    <listeners>
+        <listener class-name="listeners.AnnotationTransformer"/>
+    </listeners>
+
+    <test verbose="2" name="selenium.cucumber.framework">
         <classes>
-            <class name="testrunner.TestRunner"></class>
+            <class name="testrunner.TestRunner"/>
         </classes>
     </test>
+
 </suite>
