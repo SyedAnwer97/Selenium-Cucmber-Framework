@@ -1,49 +1,42 @@
 package steps;
 
-import driver.DriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import pages.HomePage;
+import pages.LoginPage;
 
-import java.time.Duration;
-
-public class LoginSteps {
-
-    private String URL = "https://www.saucedemo.com/";
+public final class LoginSteps {
 
     @Given("User should navigate to the application")
     public void userShouldNavigateToTheApplication() {
-        DriverManager.getDriver().get(URL);
+        new LoginPage().navigateToWebsite();
     }
 
     @Given("user should enter the username as {string}")
     public void userShouldEnterTheUsernameAs(String username) {
-        DriverManager.getDriver().findElement(By.id("user-name")).sendKeys(username);
+        new LoginPage().enterUsername(username);
     }
 
     @Given("User should enter the password as {string}")
     public void userShouldEnterThePasswordAs(String password) {
-        DriverManager.getDriver().findElement(By.id("password")).sendKeys(password);
+        new LoginPage().enterPassword(password);
     }
 
     @Given("User should click the login button")
     public void userShouldClickTheLoginButton() {
-        DriverManager.getDriver().findElement(By.id("login-button")).click();
+        new LoginPage().clickLoginButton();
     }
 
     @Then("login should be success")
     public void loginShouldBeSuccess() {
-        boolean displayed = DriverManager.getDriver().findElement(By.xpath("//div[@class='app_logo']")).isDisplayed();
-        //Assert.assertTrue(displayed);
-        Assert.assertTrue(true);
+        boolean displayed = new HomePage().logoDisplayed();
+        Assert.assertTrue(displayed);
     }
 
     @Given("login should be fail")
     public void loginShouldBeFail() {
-        boolean displayed = DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Username and password do not match')]")).isDisplayed();
+        boolean displayed = new LoginPage().loginFailNotification();
         Assert.assertTrue(displayed);
     }
 
