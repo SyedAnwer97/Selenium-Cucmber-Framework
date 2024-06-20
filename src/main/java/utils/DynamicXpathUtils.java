@@ -1,15 +1,18 @@
 package utils;
 
-public class DynamicXpathUtils {
+import static java.lang.String.format;
+
+public final class DynamicXpathUtils {
 
     private DynamicXpathUtils() {
     }
 
     public static String getDynamicXpath(String xpath, String value) {
-        return String.format(xpath, value);
+        return format(xpath, value);
     }
 
     public static String getDynamicXpath(String xpath, String value1, String value2) {
-        return String.format(xpath, value1, value2);
+        return format(xpath, value1, value2);
     }
+
 }

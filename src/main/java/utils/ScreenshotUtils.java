@@ -1,8 +1,9 @@
 package utils;
 
-import driver.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import static driver.DriverManager.getDriver;
 
 public final class ScreenshotUtils {
 
@@ -10,7 +11,7 @@ public final class ScreenshotUtils {
     }
 
     public static byte[] takeScreenShot() {
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
 }

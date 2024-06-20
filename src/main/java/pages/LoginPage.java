@@ -5,11 +5,10 @@ import org.openqa.selenium.By;
 import static driver.DriverManager.getDriver;
 import static enums.Locators.ID;
 import static enums.Locators.XPATH;
+import static property.Properties.URL;
 import static utils.LocatorUtils.byLocator;
 
 public final class LoginPage {
-
-    private final String URL = "https://www.saucedemo.com/";
 
     private final By textboxUsername = byLocator(ID, "user-name");
     private final By textboxPassword = byLocator(ID, "password");
@@ -43,4 +42,5 @@ public final class LoginPage {
     public boolean loginFailNotification() {
         return getDriver().findElement(textFailNotification).isDisplayed();
     }
+
 }
