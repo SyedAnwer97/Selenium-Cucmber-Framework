@@ -1,5 +1,5 @@
 @E2E
-Feature: Swag Labs application demo
+Feature: Swag Labs application login functionality
 
   Background:
     Given User should navigate to the application

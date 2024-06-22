@@ -13,7 +13,6 @@ public class Driver {
         if (Objects.isNull(getDriver())) {
             settDriver(getBrowser(browser));
             getDriver().manage().window().maximize();
-            getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         }
     }
 

@@ -1,5 +1,5 @@
 @UAT
-Feature: Swag Labs application Demo
+Feature: Swag Labs application add to cart functionality
 
   Background:
     Given User should navigate to the application

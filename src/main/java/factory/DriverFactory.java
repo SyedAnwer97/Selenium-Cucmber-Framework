@@ -35,7 +35,7 @@ public final class DriverFactory {
         firefoxdriver().setup();
         FirefoxOptions fo = new FirefoxOptions();
         fo.addArguments("-private");
-        fo.addArguments("headless");
+        fo.addArguments("--headless");
         driver = new FirefoxDriver(fo);
         return driver;
     };
@@ -44,7 +44,7 @@ public final class DriverFactory {
         edgedriver().setup();
         EdgeOptions eo = new EdgeOptions();
         eo.addArguments("-private");
-        eo.addArguments("headless");
+        eo.addArguments("--headless");
         driver = new EdgeDriver(eo);
         return driver;
     };
