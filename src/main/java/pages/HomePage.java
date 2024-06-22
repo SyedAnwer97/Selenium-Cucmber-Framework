@@ -1,18 +1,15 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static driver.DriverManager.getDriver;
 import static enums.Locators.ID;
 import static enums.Locators.XPATH;
+import static enums.Waits.CLICK;
 import static utils.DynamicXpathUtils.getDynamicXpath;
 import static utils.LocatorUtils.byLocator;
 
-public final class HomePage {
+public final class HomePage extends PageActions {
 
     private final String productsAddToCart = "//div[normalize-space()='%s']//following::button[.='Add to cart'][1]";
 
@@ -27,20 +24,19 @@ public final class HomePage {
     }
 
     public HomePage addToCart(String productName) {
-        getDriver().findElement(byLocator(XPATH, getDynamicXpath(productsAddToCart, productName))).click();
+        click(CLICK, byLocator(XPATH, getDynamicXpath(productsAddToCart, productName)));
         return this;
     }
 
     public String badgeUpdate() {
-        return getDriver().findElement(shoppingCartBadge).getText();
+        return (String) driverActions(a -> findElement(shoppingCartBadge).getText());
     }
 
     public HomePage cartCleanup() {
         if (getDriver().findElement(shoppingCartBadge).isDisplayed()) {
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(buttonBurgerMenu)).click();
-            wait.until(ExpectedConditions.elementToBeClickable(linkResetSidebarLink)).click();
-            wait.until(ExpectedConditions.elementToBeClickable(buttonBurgerCrossButton)).click();
+            click(CLICK, buttonBurgerMenu);
+            click(CLICK, linkResetSidebarLink);
+            click(CLICK, buttonBurgerCrossButton);
         }
         return new HomePage();
     }
