@@ -1,6 +1,5 @@
 package factory;
 
-import driver.DriverManager;
 import enums.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,10 +11,11 @@ import java.util.function.Consumer;
 import static driver.DriverManager.getDriver;
 import static java.time.Duration.ofSeconds;
 
-public class WaitFactory {
+public final class WaitFactory {
+    
+    private WaitFactory(){}
 
     private static WebElement webElement;
-    private static WebDriverWait wait = new WebDriverWait(getDriver(), ofSeconds(10));
 
     public static WebElement wait(Waits waitCondition, By by) {
         WebDriverWait wait = new WebDriverWait(getDriver(), ofSeconds(10));
@@ -27,7 +27,7 @@ public class WaitFactory {
             case VISIBLE:
                 webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
             case NONE:
-                webElement = DriverManager.getDriver().findElement(by);
+                webElement = getDriver().findElement(by);
         }
         return webElement;
     }

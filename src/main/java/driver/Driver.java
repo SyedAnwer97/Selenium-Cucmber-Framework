@@ -1,13 +1,15 @@
 package driver;
 
-import java.time.Duration;
 import java.util.Objects;
 
 import static driver.DriverManager.*;
 import static factory.DriverFactory.getBrowser;
 import static property.Properties.browser;
 
-public class Driver {
+public final class Driver {
+
+    private Driver() {
+    }
 
     public static void initDriver() {
         if (Objects.isNull(getDriver())) {
