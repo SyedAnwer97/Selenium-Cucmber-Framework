@@ -22,7 +22,7 @@ public final class DriverFactory {
     private final static Map<String, Supplier<WebDriver>> map = new HashMap<>();
     private static WebDriver driver = null;
 
-    static Supplier<WebDriver> chrome = () -> {
+    private final static Supplier<WebDriver> chrome = () -> {
         chromedriver().setup();
         ChromeOptions co = new ChromeOptions();
         co.addArguments("--incognito");
@@ -31,7 +31,7 @@ public final class DriverFactory {
         return driver;
     };
 
-    static Supplier<WebDriver> firefox = () -> {
+    private final static Supplier<WebDriver> firefox = () -> {
         firefoxdriver().setup();
         FirefoxOptions fo = new FirefoxOptions();
         fo.addArguments("-private");
@@ -40,7 +40,7 @@ public final class DriverFactory {
         return driver;
     };
 
-    static Supplier<WebDriver> edge = () -> {
+    private final static Supplier<WebDriver> edge = () -> {
         edgedriver().setup();
         EdgeOptions eo = new EdgeOptions();
         eo.addArguments("-private");

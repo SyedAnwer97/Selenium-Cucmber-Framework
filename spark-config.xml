@@ -4,7 +4,7 @@
 
         <!-- report theme -->
         <!-- STANDARD, DARK -->
-        <theme>DARK</theme>
+        <theme>STANDARD</theme>
 
         <!-- document encoding -->
         <!-- defaults to UTF-8 -->
