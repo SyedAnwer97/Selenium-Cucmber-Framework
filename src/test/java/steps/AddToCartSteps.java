@@ -6,7 +6,7 @@ import org.testng.Assert;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class AddToCartSteps {
+public final class AddToCartSteps {
 
     @Given("User should login as {string} and {string}")
     public void userShouldLoginAsAnd(String username, String password) {
