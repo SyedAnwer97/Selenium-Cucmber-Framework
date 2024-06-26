@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import pages.HomePage;
-import utils.ScenarioSteps;
+import utils.ScenarioStepsUtils;
 
 import static utils.ScreenshotUtils.takeScreenShot;
 
@@ -34,7 +34,7 @@ public class Hooks {
     public void afterScenario(Scenario scenario) {
         if (scenario.isFailed()) {
             scenario.attach(takeScreenShot(), "image/png", scenario.getName());
-            MyLogger.error(ScenarioSteps.getSteps(scenario) + " is failed");
+            MyLogger.error(ScenarioStepsUtils.getSteps(scenario) + " is failed");
         }
         Driver.tearDown();
         MyLogger.endTestCase(scenario.getName());
@@ -43,15 +43,15 @@ public class Hooks {
     @SneakyThrows
     @BeforeStep
     public void beforeSteps(Scenario scenario) {
-        if (lineCount < ScenarioSteps.getSteps(scenario).size()) {
-            MyLogger.info(ScenarioSteps.getSteps(scenario).get(lineCount) + " : step is started ");
+        if (lineCount < ScenarioStepsUtils.getSteps(scenario).size()) {
+            MyLogger.info(ScenarioStepsUtils.getSteps(scenario).get(lineCount) + " : step is started ");
         }
     }
 
     @AfterStep
     public void afterSteps(Scenario scenario) {
-        if (lineCount < ScenarioSteps.getSteps(scenario).size()) {
-            MyLogger.info(ScenarioSteps.getSteps(scenario).get(lineCount) + " : step is passed");
+        if (lineCount < ScenarioStepsUtils.getSteps(scenario).size()) {
+            MyLogger.info(ScenarioStepsUtils.getSteps(scenario).get(lineCount) + " : step is passed");
         }
         lineCount++;
     }

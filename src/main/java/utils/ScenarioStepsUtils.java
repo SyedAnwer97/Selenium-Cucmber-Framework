@@ -6,12 +6,11 @@ import lombok.SneakyThrows;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public final class ScenarioSteps {
-    private ScenarioSteps() {
+public final class ScenarioStepsUtils {
+    private ScenarioStepsUtils() {
     }
 
     private static List<String> steps = new ArrayList<>();

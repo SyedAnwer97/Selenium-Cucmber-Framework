@@ -18,6 +18,7 @@ public final class HomePage extends PageActions {
     private final By buttonBurgerMenu = byLocator(ID, "react-burger-menu-btn");
     private final By linkResetSidebarLink = byLocator(ID, "reset_sidebar_link");
     private final By buttonBurgerCrossButton = byLocator(ID, "react-burger-cross-btn");
+    private final By linkLogout = byLocator(ID, "logout_sidebar_link");
 
     public boolean logoDisplayed() {
         return getDriver().findElement(imageLogo).isDisplayed();
@@ -39,6 +40,16 @@ public final class HomePage extends PageActions {
             click(CLICK, buttonBurgerCrossButton);
         }
         return new HomePage();
+    }
+
+    public HomePage clickButtonBurgerMenu() {
+        click(CLICK, buttonBurgerMenu);
+        return this;
+    }
+
+    public LoginPage clickLogoutLink() {
+        click(CLICK, linkLogout);
+        return new LoginPage();
     }
 
 }

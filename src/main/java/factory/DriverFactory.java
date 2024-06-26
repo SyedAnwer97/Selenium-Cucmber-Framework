@@ -1,5 +1,7 @@
 package factory;
 
+import enums.ConfigProperties;
+import io.cucumber.java.en_pirate.Aye;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,12 +9,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.PropertyUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import static enums.ConfigProperties.*;
 import static io.github.bonigarcia.wdm.WebDriverManager.*;
+import static utils.PropertyUtils.*;
 
 public final class DriverFactory {
 
@@ -26,7 +31,7 @@ public final class DriverFactory {
         chromedriver().setup();
         ChromeOptions co = new ChromeOptions();
         co.addArguments("--incognito");
-        co.addArguments("headless");
+        if (get(HEADLESS).equalsIgnoreCase("yes")) co.addArguments("headless");
         driver = new ChromeDriver(co);
         return driver;
     };
@@ -35,7 +40,7 @@ public final class DriverFactory {
         firefoxdriver().setup();
         FirefoxOptions fo = new FirefoxOptions();
         fo.addArguments("-private");
-        fo.addArguments("--headless");
+        if (get(HEADLESS).equalsIgnoreCase("yes")) fo.addArguments("--headless");
         driver = new FirefoxDriver(fo);
         return driver;
     };
@@ -44,7 +49,7 @@ public final class DriverFactory {
         edgedriver().setup();
         EdgeOptions eo = new EdgeOptions();
         eo.addArguments("-private");
-        eo.addArguments("--headless");
+        if (get(HEADLESS).equalsIgnoreCase("yes")) eo.addArguments("headless");
         driver = new EdgeDriver(eo);
         return driver;
     };
